@@ -1,17 +1,19 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import {
-	addMonths,
-	eachDayOfInterval,
-	endOfMonth,
-	format,
-	startOfMonth,
-	subMonths,
-} from "date-fns";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { addMonths, subMonths } from "date-fns";
+import CalendarHeader from "./CalendarHeader";
+import CalendarWeek from "./CalendarWeek";
+import CalendarDays from "./CalendarDays";
 
 const Calendar = () => {
 	// State to manage current month
 	const [currentMonth, setCurrentMonth] = useState(new Date());
+	// State to manage select date
+	const [selectedDate, setSelectedDate] = useState(new Date());
+
+	const onDateClick = (day) => {
+		setSelectedDate(day);
+	};
 
 	// Function to navigate to previous month
 	const prevMonth = () => {
@@ -23,43 +25,22 @@ const Calendar = () => {
 		setCurrentMonth(addMonths(currentMonth, 1));
 	};
 
-	// Function to generate array of days for current month
-	const generateCalendarDays = () => {
-		const start = startOfMonth(currentMonth);
-		const end = endOfMonth(currentMonth);
-		return eachDayOfInterval({ start, end });
-	};
-
-	const calendarDays = generateCalendarDays();
-
 	return (
-		<div className="calendar bg-white p-4 rounded shadow-md ">
+		<div className="container bg-white rounded shadow-md p-10">
 			{/* Calendar Header - Month & Year with navigation buttons */}
-			<div className="header flex justify-between items-center bg-white text-stone-900 mb-4">
-				<h2 className="text-xl font-semibold">
-					{format(currentMonth, "MMMM yyyy")}
-				</h2>
-				<button
-					onClick={prevMonth}
-					className="bg-white text-gray-500 hover:text-gray-900 border-none rounded-full"
-				>
-					<FiChevronLeft />
-				</button>
-				<button
-					onClick={nextMonth}
-					className="bg-white text-gray-500 hover:text-gray-900 border-none rounded-full"
-				>
-					<FiChevronRight />
-				</button>
-			</div>
+			<CalendarHeader
+				currentMonth={currentMonth}
+				prevMonth={prevMonth}
+				nextMonth={nextMonth}
+			/>
+			{/* Calendar Week */}
+			<CalendarWeek currentMonth={currentMonth} />
 			{/* Calendar Days */}
-			<div className="grid grid-cols-7 gap-2">
-				{calendarDays.map((day) => (
-					<div key={day} className="day flex items-center justify-center h-12 text-gray-800">
-						{format(day, "d")}
-					</div>
-				))}
-			</div>
+			<CalendarDays
+				currentMonth={currentMonth}
+				selectedDate={selectedDate}
+				onDateClick={onDateClick}
+			/>
 		</div>
 	);
 };
