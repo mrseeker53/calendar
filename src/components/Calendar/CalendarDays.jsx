@@ -11,7 +11,6 @@ import {
 	isSameMonth,
 	isSameDay,
 } from "date-fns";
-import { useSelector } from "react-redux";
 
 const CalendarDays = ({ currentMonth, selectedDate, onDateClick }) => {
 	const monthStart = startOfMonth(currentMonth);
@@ -19,7 +18,6 @@ const CalendarDays = ({ currentMonth, selectedDate, onDateClick }) => {
 	const startDate = startOfWeek(monthStart);
 	// Ensures a 6-row grid
 	const endDate = endOfWeek(addDays(startDate, 41));
-	const tasks = useSelector((state) => state.tasks);
 
 	const rows = [];
 	let days = [];
@@ -30,7 +28,7 @@ const CalendarDays = ({ currentMonth, selectedDate, onDateClick }) => {
 		for (let i = 0; i < 7; i++) {
 			formattedDate = format(day, "d");
 			const cloneDay = day;
-			const formattedCloneDay = format(cloneDay, "yyyy-MM-dd");
+			
 			days.push(
 				<div
 					className="p-1.5 flex justify-center items-center"
@@ -48,17 +46,6 @@ const CalendarDays = ({ currentMonth, selectedDate, onDateClick }) => {
 					>
 						{formattedDate}
 					</span>
-					<div className="text-xs mt-1">
-						{tasks[formattedCloneDay] &&
-							tasks[formattedCloneDay].map((task, index) => (
-								<div
-									key={index}
-									className="bg-blue-200 rounded p-1 mt-1 text-xs"
-								>
-									{task}
-								</div>
-							))}
-					</div>
 				</div>
 			);
 			day = addDays(day, 1);
