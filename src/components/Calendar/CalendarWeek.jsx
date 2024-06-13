@@ -3,7 +3,7 @@
 import React from "react";
 import { addDays, format, startOfWeek } from "date-fns";
 
-const CalendarDays = ({ currentMonth }) => {
+const CalendarWeek = ({ currentMonth }) => {
 	const days = [];
 	const startDate = startOfWeek(currentMonth);
 
@@ -28,4 +28,4 @@ const CalendarDays = ({ currentMonth }) => {
 	return <div className="grid grid-cols-7">{days}</div>;
 };
 
-export default CalendarDays;
+export default CalendarWeek;

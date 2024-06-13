@@ -1,19 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { format } from "date-fns";
 
-const initialState = {};
+const initialState = {
+	tasks: {}
+};
 
 const tasksSlice = createSlice({
 	name: "tasks",
 	initialState,
 	reducers: {
 		addTask: (state, action) => {
-			const { date, task } = action.payload;
-			const formattedDate = format(date, "yyyy-MM-dd");
-			if (!state[formattedDate]) {
-				state[formattedDate] = [];
+			const { date, task, time } = action.payload;
+			if (!state.tasks[date]) {
+				state.tasks[date] = [];
 			}
-			state[formattedDate].push(task);
+			state.tasks[date].push({task, time});
 		},
 	},
 });
