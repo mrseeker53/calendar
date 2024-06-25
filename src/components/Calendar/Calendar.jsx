@@ -26,15 +26,16 @@ const Calendar = () => {
 	};
 
 	return (
-		<div className="bg-white rounded-xl w-full my-6">
-			<div className="rounded-lg px-4 py-6">
+		<div className="bg-white rounded-xl drop-shadow-2xl w-full my-6">
+			<div className="rounded-lg px-4 pt-6">
 				<CalendarHeader
 					currentMonth={currentMonth}
 					prevMonth={prevMonth}
 					nextMonth={nextMonth}
 				/>
 			</div>
-			<div className="bg-white p-4 drop-shadow-2xl rounded-xl">
+			<hr className="border-0 bg-gray-300 w-full h-0.5"/>
+			<div className="bg-white p-4 pt-0 rounded-xl">
 				<TasksDisplay
 					currentMonth={currentMonth}
 					onAddTasksClick={openModal}

@@ -63,7 +63,7 @@ const TasksDisplay = ({ currentMonth }) => {
   const renderWeekdays = () => (
     <div className="grid grid-cols-7">
       {weekdays.map((day, index) => (
-        <div key={index} className="text-gray-400 text-center font-semibold">
+        <div key={index} className="border border-gray-200 border-y-0 text-gray-400 text-center font-semibold pt-3">
           {day}
         </div>
       ))}
@@ -84,7 +84,7 @@ const TasksDisplay = ({ currentMonth }) => {
 
       days.push(
         <div
-          className="border border-gray-200 p-1.5 flex flex-col justify-start items-center h-32"
+          className="border border-gray-200 border-t-0 p-1.5 flex flex-col justify-start items-center h-32"
           key={formattedCloneDay}
           onClick={() => openModal(cloneDay)}
         >
