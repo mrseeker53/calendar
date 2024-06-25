@@ -27,28 +27,13 @@ const Calendar = () => {
 	};
 
 	return (
-		<div className="flex bg-white rounded-xl w-full my-6">
-			<div className="bg-white rounded-xl shadow-xl px-4 py-6">
+		<div className="rounded-xl w-full py-4 m-4">
+			<div className="bg-white p-4 drop-shadow-2xl rounded-xl w-full">
 				<CalendarHeader
 					currentMonth={currentMonth}
 					prevMonth={prevMonth}
 					nextMonth={nextMonth}
 				/>
-				<CalendarWeek currentMonth={currentMonth} />
-				<CalendarDays
-					currentMonth={currentMonth}
-					selectedDate={selectedDate}
-					onDateClick={(day) => setSelectedDate(day)}
-					tasks={tasks}
-				/>
-				{showModal && (
-					<TaskModal
-						selectedDate={selectedDate}
-						onClose={() => setShowModal(false)}
-					/>
-				)}
-			</div>
-			<div className="bg-white p-2 shadow-2xl rounded-xl ml-12 w-3/4">
 				<TasksDisplay
 					currentMonth={currentMonth}
 					onAddTasksClick={openModal}
