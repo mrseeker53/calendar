@@ -6,10 +6,21 @@ The Calendar app is a minimalistic application developed using React and Vite, d
 
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [API Endpoints](#api-endpoints)
+- [Development](#Development)
+- [Building for Production](#building-for-production)
+- [Project Structure](#project-structure)
+- [Configuration Files](#configuration-files)
+- [Key Dependencies](#key-dependencies)
+- [Available Scripts](#available-scripts)
 - [Contributing](#contributing)
+- [Deployment](#deployment)
 - [License](#license)
+
+## Features
+- **Event Management**: Create, update, and delete events.
+- **Monthly View**: Display events in a monthly calendar format.
+- **Responsive Design**: Optimized for various screen sizes using Tailwind CSS.
+- **Fast Development**: Utilizes Vite for quick build times and hot module replacement.
 
 ## Installation
 
@@ -58,12 +69,6 @@ npm run build
 - **React**: A JavaScript library for building user interfaces.
 - **Vite**: A build tool that provides a fast and lean development experience for modern web projects.
 - **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
-
-## Features
-- **Event Management**: Create, update, and delete events.
-- **Monthly View**: Display events in a monthly calendar format.
-- **Responsive Design**: Optimized for various screen sizes using Tailwind CSS.
-- **Fast Development**: Utilizes Vite for quick build times and hot module replacement.
 
 ## Available Scripts
 - **npm run dev**: Start the development server.
