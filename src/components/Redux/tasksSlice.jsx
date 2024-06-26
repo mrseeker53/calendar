@@ -10,11 +10,11 @@ const tasksSlice = createSlice({
 	initialState,
 	reducers: {
 		addTask: (state, action) => {
-			const { date, task, time } = action.payload;
+			const { date, task, description, time } = action.payload;
 			if (!state.tasks[date]) {
 				state.tasks[date] = [];
 			}
-			state.tasks[date].push({task, time});
+			state.tasks[date].push({task, description, time});
 		},
 	},
 });

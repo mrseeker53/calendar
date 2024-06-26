@@ -14,7 +14,7 @@ const AllTasksModal = ({ selectedDate, tasks, onClose }) => {
 				<div className="flex items-center justify-between mb-4">
 					<div className="text-center pl-24">
 						<span className="text-gray-500 text-xs">{dayName.toUpperCase()}</span>
-						<h3 className="bg-blue-600 text-white hover:bg-blue-500 text-2xl rounded-full px-3 py-1">{date}</h3>
+						<h3 className="bg-blue-600 text-white hover:bg-blue-500 text-2xl rounded-full px-1.5 py-1">{date}</h3>
 					</div>
 					<button
 						onClick={onClose}

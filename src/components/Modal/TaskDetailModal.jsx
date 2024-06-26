@@ -1,10 +1,9 @@
-import React from "react";
 import { format } from "date-fns";
 
 const TaskDetailModal = ({ selectedTask, onClose }) => {
 	if (!selectedTask) return null;
 
-	const { task, time, date } = selectedTask;
+	const { task, time, date, description } = selectedTask;
 	const formattedDate = format(new Date(date), "eeee, MMMM d");
 
 	return (
@@ -21,11 +20,12 @@ const TaskDetailModal = ({ selectedTask, onClose }) => {
 				</div>
 				<div className="mb-4">
 					<h3 className="text-gray-800 font-semibold text-2xl mb-1">{task}</h3>
-					<div className="flex items-center text-gray-600">
+					<div className="flex items-center text-gray-500">
 						<span>{formattedDate}</span>
 						<span className="mx-3 text-xs">•</span>
 						<span>{time}</span>
 					</div>
+					<p className="text-gray-700 whitespace-pre-line pt-10">{description}</p>
 				</div>
 			</div>
 		</div>
