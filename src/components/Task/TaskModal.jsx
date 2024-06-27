@@ -5,11 +5,14 @@ import { format } from "date-fns";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TimeSlotSelector from "./TimeSlotSelector";
+import ColorSelect from "../ColorSelect/ColorSelect";
 
 const TaskModal = ({ selectedDate, onClose }) => {
 	const [task, setTask] = useState("");
 	const [description, setDescription] = useState("");
 	const [time, setTime] = useState(null);
+	// const [color, setColor] = useState("#DB4437");
+
 	const dispatch = useDispatch();
 
 	const handleSave = () => {
@@ -30,11 +33,10 @@ const TaskModal = ({ selectedDate, onClose }) => {
 					task,
 					description,
 					time: time.value,
+					color,
 				})
 			);
 			onClose();
-		} else {
-			alert("Please select a time for the task.");
 		}
 	};
 
@@ -56,7 +58,6 @@ const TaskModal = ({ selectedDate, onClose }) => {
 					placeholder="Title"
 					value={task}
 					onChange={(e) => setTask(e.target.value)}
-					required=""
 				/>
 				<TimeSlotSelector selectedTime={time} onTimeChange={setTime} />
 				<textarea
@@ -65,6 +66,8 @@ const TaskModal = ({ selectedDate, onClose }) => {
 					value={description}
 					onChange={(e) => setDescription(e.target.value)}
 				/>
+				{/* <ColorSelect selectedColor={color} setSelectColor={setColor} /> */}
+				<ColorSelect />
 				<div className="text-end">
 					<button
 						className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border-none focus:outline-none"
