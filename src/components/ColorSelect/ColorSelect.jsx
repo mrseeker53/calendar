@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
 const colors = [
@@ -16,11 +16,17 @@ const Circle = ({ color }) => (
   />
 );
 
-const ColorSelect = () => {
-  const [selectedOption, setSelectedOption] = useState(colors[1]); // Set default color
+const ColorSelect = ({ selectedColor, setSelectedColor }) => {
+  const [selectedOption, setSelectedOption] = useState(
+    colors.find(color => color.value === selectedColor) || colors[0]
+  );
 
-  const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
+  useEffect(() => {
+    setSelectedColor(selectedOption.value);
+  }, [selectedOption, setSelectedColor]);
+
+  const handleChange = (option) => {
+    setSelectedOption(option);
   };
 
   return (
