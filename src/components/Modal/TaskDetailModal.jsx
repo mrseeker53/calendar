@@ -6,9 +6,6 @@ const TaskDetailModal = ({ selectedTask, onClose }) => {
 	const { task, time, date, description, color } = selectedTask;
 	const formattedDate = format(new Date(date), "eeee, MMMM d");
 
-	// Debugging log to check the color value
-	console.log("Color value:", color);
-
 	return (
 		<div className="fixed inset-0 flex items-center justify-center">
 			<div className="bg-white rounded-lg drop-shadow-2xl p-4 w-80">

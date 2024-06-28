@@ -26,8 +26,6 @@ const TaskModal = ({ selectedDate, onClose }) => {
       return;
     }
 
-    console.log("Selected Color:", color); // Debugging log
-
     if (time) {
       dispatch(
         addTask({
