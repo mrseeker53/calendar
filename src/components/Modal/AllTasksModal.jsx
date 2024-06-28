@@ -12,13 +12,13 @@ const AllTasksModal = ({ selectedDate, tasks, onClose }) => {
 
 	return (
 		<div className="fixed inset-0 flex items-center justify-center">
-			<div className="bg-white text-gray-800 rounded-lg drop-shadow-2xl p-4 w-64">
+			<div className="bg-white text-gray-800 rounded-lg drop-shadow-2xl p-3 w-64">
 				<div className="flex items-center justify-between mb-4">
-					<div className="text-center pl-24">
+					<div className="text-center pl-24 pt-2">
 						<span className="text-gray-500 text-xs">
 							{dayName.toUpperCase()}
 						</span>
-						<h3 className="text-gray-500 hover:bg-slate-100 text-2xl rounded-full px-1.5 py-1">
+						<h3 className="text-gray-500 hover:bg-slate-100 text-2xl rounded-full cursor-pointer px-1.5 py-1">
 							{date}
 						</h3>
 					</div>
